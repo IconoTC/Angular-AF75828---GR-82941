@@ -4,6 +4,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ```bash
 ng new ng20 --ai-config copilot --create-application false -g
+cd ng20
+ng g app demo-classic -s -t -p ind --ssr false --style css --zoneless false 
 ```
 
 ## Development server

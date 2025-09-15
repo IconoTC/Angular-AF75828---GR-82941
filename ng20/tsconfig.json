@@ -22,5 +22,13 @@
     "typeCheckHostBindings": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/demo-classic/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo-classic/tsconfig.spec.json"
+    }
+  ]
 }
