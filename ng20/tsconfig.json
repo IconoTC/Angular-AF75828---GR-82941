@@ -29,6 +29,12 @@
     },
     {
       "path": "./projects/demo-classic/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo-modern/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo-modern/tsconfig.spec.json"
     }
   ]
 }
