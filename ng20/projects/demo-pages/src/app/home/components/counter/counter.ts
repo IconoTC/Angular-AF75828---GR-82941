@@ -4,11 +4,33 @@ import { Component, signal } from '@angular/core';
   selector: 'ind-counter',
   imports: [],
   template: `
-    <p>Counter: {{ counter() }}</p>
-    <button (click)="change(1)">+</button>
-    <button (click)="change(-1)">-</button>
+    <p>
+      Counter:
+      <span [class]="{ negative: counter() < 0 }">
+        {{ counter() }}
+      </span>
+    </p>
+    <button (click)="change(1)" [disabled]="counter() >= 5">➕</button>
+    <button (click)="change(-1)" [disabled]="counter() <= -5">➖</button>
+
+    @if (counter() === 5) {
+      <p>Max reached</p>
+    } @else if (counter() === -5) {
+      <p>Min reached</p>
+    }
   `,
-  styles: [],
+  styles: [
+    '.negative { color: red; }',
+    `
+      :host {
+        margin: 1rem;
+        display: block;
+        padding: 0.5rem;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+      }
+    `,
+  ],
 })
 export class Counter {
   protected counter = signal(0);
