@@ -68,7 +68,6 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
 - Testing de componentes (continuación)
   - Pruebas unitarias para componentes con eventos y data binding.
 - Debugging
-<!-- - Logo. Componentes de template svg -->
 - Comunicación entre componentes
   - Input. Decoradores @Input. Drilling del título
   - Output. Decorador @Output. EventEmitter
@@ -83,3 +82,24 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
   - Componente Tasks. Lógica del estado
   - Componente TodoItem. Input y Output (Eventos)
   - Componente TodoCreate. Output (Eventos). Forms Template Driven (TD)
+
+## Día 4 (J-18). Servicios. Providers e injectors. Formularios DD
+<!-- 
+- Forms TD (review)
+- Introducción a los servicios en Angular.
+- Servicios y Providers. DI (Dependency Injection)
+  - Creación de un servicio: TimeServer
+  - Provider root v. provider en un componente
+- Servicios y patrón Repository
+  - Servicio InMemoryTaskRepository. Mock de datos.
+  - Uso de promesas y observables (RxJs)
+  - Testing de servicios.
+  - Uso en los componentes. Inyección de dependencias.
+  - Repositorio y lógica de negocio (estado). Estrategias
+  - Estrategia no optimista 1 repositorio / 2 estado
+- Formularios reactivos (DD)
+  - FormGroup, FormControl, FormBuilder
+  - Validaciones síncronas y asíncronas.
+  - Formularios anidados. FormArray
+  - Formularios dinámicos.
+  - Testing de formularios reactivos. -->
