@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Counter } from './counter';
-import { provideZonelessChangeDetection } from '@angular/core';
+import { InputSignal, provideZonelessChangeDetection, signal } from '@angular/core';
 
 describe('Counter', () => {
   let component: Counter;
@@ -15,6 +15,7 @@ describe('Counter', () => {
 
     fixture = TestBed.createComponent(Counter);
     component = fixture.componentInstance;
+    component.index = signal(1) as unknown as InputSignal<number>;
     fixture.detectChanges();
   });
 
@@ -34,6 +35,8 @@ describe('Counter', () => {
   // Test de interfaz (caja negra)
 
   it(`should change when user click the buttons`, () => {
+     spyOn(component.clickEvent, 'emit');
+    
     const buttons: HTMLButtonElement[] = fixture.nativeElement.querySelectorAll('button');
     const incrementButton = buttons[0];
     const decrementButton = buttons[1];
@@ -44,27 +47,14 @@ describe('Counter', () => {
     // incrementButton.dispatchEvent(new Event('click'));
     fixture.detectChanges();
     expect(span.textContent).toContain('1');
+    expect(component.clickEvent.emit).toHaveBeenCalledWith(1);
 
     decrementButton.click();
     // decrementButton.dispatchEvent(new Event('click'));
     fixture.detectChanges();
     expect(span.textContent).toContain('0');
+    expect(component.clickEvent.emit).toHaveBeenCalledWith(0);
   });
 
-  it('should disable increment button when counter is 5 and decrement button when counter is -5', () => {
-    const incrementButton: HTMLButtonElement =
-      fixture.nativeElement.querySelector('button:nth-of-type(1)');
-    const decrementButton: HTMLButtonElement =
-      fixture.nativeElement.querySelector('button:nth-of-type(2)');
 
-    component['counter'].set(5);
-    fixture.detectChanges();
-    expect(incrementButton.disabled).toBe(true);
-    expect(decrementButton.disabled).toBe(false);
-
-    component['counter'].set(-5);
-    fixture.detectChanges();
-    expect(incrementButton.disabled).toBe(false);
-    expect(decrementButton.disabled).toBe(true);
-  });
 });

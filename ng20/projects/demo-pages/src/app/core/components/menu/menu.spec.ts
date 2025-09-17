@@ -1,8 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Menu } from './menu';
-import { provideZonelessChangeDetection } from '@angular/core';
+import { InputSignal, provideZonelessChangeDetection, signal } from '@angular/core';
 import { provideRouter, RouterLink, RouterLinkActive } from '@angular/router';
+import { MenuOption } from '../../types/menu-options';
+
+
+const menuMock: MenuOption[] = [
+  { label: 'Inicio', path: '/home' },
+  { label: 'Contactos', path: '/contacts' },
+  { label: 'Acerca de', path: '/about' },
+];
 
 describe('Menu', () => {
   let component: Menu;
@@ -19,6 +27,7 @@ describe('Menu', () => {
 
     fixture = TestBed.createComponent(Menu);
     component = fixture.componentInstance;
+    component.menuOptions = signal(menuMock) as unknown as InputSignal<MenuOption[]>;
     fixture.detectChanges();
   });
 
@@ -29,7 +38,7 @@ describe('Menu', () => {
   it('should render menu items', () => {
     const rendered = fixture.nativeElement as HTMLElement;
     expect(rendered.querySelector('nav')?.textContent).toContain('Inicio');
-    expect(rendered.querySelector('nav')?.textContent).toContain('Tareas');
+    expect(rendered.querySelector('nav')?.textContent).toContain('Contactos');
     expect(rendered.querySelector('nav')?.textContent).toContain('Acerca de');
   });
 });

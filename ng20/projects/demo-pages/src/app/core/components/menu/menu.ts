@@ -1,6 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { MENU_OPTIONS } from '../../../app.routes';
 import { MenuOption } from '../../types/menu-options';
 
 @Component({
@@ -43,6 +42,6 @@ import { MenuOption } from '../../types/menu-options';
     `,
 })
 export class Menu {
-  menuOptions = signal<MenuOption[]>(MENU_OPTIONS);
+  menuOptions = input.required<MenuOption[]>();
 }
 

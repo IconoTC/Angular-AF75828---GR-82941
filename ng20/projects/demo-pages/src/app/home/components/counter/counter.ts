@@ -1,11 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 
 @Component({
   selector: 'ind-counter',
   imports: [],
   template: `
     <p>
-      Counter:
+      Counter {{ index() }} value:
       <span [class]="{ negative: counter() < 0 }">
         {{ counter() }}
       </span>
@@ -33,10 +33,19 @@ import { Component, signal } from '@angular/core';
   ],
 })
 export class Counter {
+  //  @Input({
+  //     required: true,
+  //  }) index!: number
+  index = input.required<number>();
+
+  // @Output() clickEvent = new EventEmitter<number>();
+  clickEvent = output<number>();
+
   protected counter = signal(0);
 
   protected change(value: number) {
     this.counter.update((c) => c + value);
     console.log('Counter:', this.counter());
+    this.clickEvent.emit(this.counter());
   }
 }
