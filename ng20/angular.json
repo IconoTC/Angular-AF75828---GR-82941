@@ -274,7 +274,8 @@
             ],
             "styles": [
               "projects/demo-pages/src/styles.css"
-            ]
+            ],
+            "karmaConfig": "projects/demo-pages/karma.conf.js"
           }
         },
         "lint": {
