@@ -28,9 +28,9 @@ import { FormsModule } from '@angular/forms';
   `,
 })
 export class Greetings {
-  name = signal('');
+  protected name = signal('');
 
-  clear(event: Event) {
+  protected clear(event: Event) {
     this.name.set('');
     console.log(event)
   }

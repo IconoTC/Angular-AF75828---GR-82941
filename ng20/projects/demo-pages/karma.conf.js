@@ -29,6 +29,15 @@ module.exports = function (config) {
       reporters: [
         { type: 'lcov' },
         { type: 'text' }
+      ],
+      exclude: [
+        'src/test.ts',
+        'src/polyfills.ts',
+        'src/main.ts',
+        'src/styles.css',
+        'src/assets/**',
+        'src/environments/**',
+        'src/app/app.routes.ts'
       ]
     },
     reporters: ['mocha', 'kjhtml'],
