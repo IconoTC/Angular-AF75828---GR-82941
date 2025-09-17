@@ -36,14 +36,14 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
 
 ## Día 2 (M-16): Componentes y Rutas
 
-- Componentes: estado y eventos. Zone v. Zoneless
+- Componentes: estado. Zone v. Zoneless
 - Estado en los componentes con ZoneJS.
   - Componente Counter. Estado y eventos.
   - Detección del cambio: Zone v. Zoneless
   - Signals y estado
   - Zoneless y asincronía: uso de Signals
 - Scaffolding. Core y Features
-  - Componentes (pages): Home, About, Contact.
+  - Componentes (pages): Home, Tasks, About.
 - Rutas básicas. `app.routes.ts`
   - Array de rutas.
   - Array de opciones de menu
@@ -52,8 +52,8 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
   - SPA: RouterLink y RouterLinkActive
 - Rutas Lazy. Default import en las páginas
 - Componentes.
-  - Componente Counter. Condicionales @If
-  - Componente Greeting. Input de usuario: data binding.
+  - Componente Counter. Condicionales @If. [class]
+  - Componente Greeting. Input de usuario: data binding. [(ngModel)]
   - Componente Layout. Proyección de contenido
     - Componente Header.
     - Componente Footer.
