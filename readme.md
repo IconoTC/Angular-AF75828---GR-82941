@@ -36,15 +36,13 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
 
 ## Día 2 (M-16): Componentes y Rutas
 
-<!-- - Estado en los componentes con ZoneJS.
+- Componentes: estado y eventos. Zone v. Zoneless
+- Estado en los componentes con ZoneJS.
   - Componente Counter. Estado y eventos.
-  - Componente Counter. Condicionales @If
-  - Componente Greeting. Input de usuario: data binding.
-- Angular actual (20...): Zoneless y estado.
-  - Signals
+  - Detección del cambio: Zone v. Zoneless
+  - Signals y estado
+  - Zoneless y asincronía: uso de Signals
 - Scaffolding. Core y Features
-  - Componente Header.
-  - Componente Footer.
   - Componentes (pages): Home, About, Contact.
 - Rutas básicas. `app.routes.ts`
   - Array de rutas.
@@ -53,9 +51,35 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
   - Navegación. Componente menu. @for
   - SPA: RouterLink y RouterLinkActive
 - Rutas Lazy. Default import en las páginas
-- Componente Layout. Reorganización de core components
-- Reorganización componentes en Home
+- Componentes.
+  - Componente Counter. Condicionales @If
+  - Componente Greeting. Input de usuario: data binding.
+  - Componente Layout. Proyección de contenido
+    - Componente Header.
+    - Componente Footer.
+- Pipes. Location "es"
 - Testing de componentes
   - Configuración de Karma y Jasmine.
   - Coverage istambul
-  - Creación de pruebas unitarias para componentes. -->
+  - Creación de pruebas unitarias para componentes.
+
+## Día 3 (X-17). Comunicaciones y Arquitectura de componentes. Formularios TD
+
+- Testing de componentes (continuación)
+  - Pruebas unitarias para componentes con eventos y data binding.
+- Debugging
+<!-- - Logo. Componentes de template svg -->
+- Comunicación entre componentes
+  - Input. Decoradores @Input. Drilling del título
+  - Output. Decorador @Output. EventEmitter
+  - Agrupando contadores.
+  - Contadores. Eventos con valor
+  - Testing de componentes con comunicación.
+- Arquitectura de componentes
+  - Componentes de presentación vs contenedores.
+  - Componentes inteligentes vs tontos.
+- Ejemplo: ToDo List
+  - Entidad ToDo. Modelo y mock de datos (RxJs).
+  - Componente Tasks. Lógica del estado
+  - Componente TodoItem. Input y Output (Eventos)
+  - Componente TodoCreate. Output (Eventos). Forms Template Driven (TD)
