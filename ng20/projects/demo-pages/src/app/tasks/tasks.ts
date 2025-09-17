@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { TaskList } from "./components/task-list/task-list";
 
 @Component({
   selector: 'ind-task',
-  imports: [],
+  imports: [TaskList],
   template: `
-    <p>
-      task works!
-    </p>
+    <h2>Tasks</h2>
+    <ind-task-list />
   `,
   styles: ``
 })
