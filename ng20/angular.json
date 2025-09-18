@@ -368,7 +368,8 @@
             ],
             "styles": [
               "projects/demo-repo/src/styles.css"
-            ]
+            ],
+            "karmaConfig": "projects/demo-repo/karma.conf.js"
           }
         },
         "lint": {
