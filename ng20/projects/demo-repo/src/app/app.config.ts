@@ -15,5 +15,10 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
+    // {
+    //   provide: InMemoryRepo,
+    //   useClass: InMemoryRepo
+    // },
+    // InMemoryRepo
   ]
 };

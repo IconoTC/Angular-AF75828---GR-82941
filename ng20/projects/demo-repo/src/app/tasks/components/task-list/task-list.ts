@@ -1,19 +1,23 @@
-import { Component, ElementRef, OnDestroy, OnInit, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
 import { TaskAdd } from '../task-add/task-add';
 import { TaskItem } from '../task-item/task-item';
 import { Task, TaskDTO } from '../../models/task';
-import { getTasks } from '../../data/task-data';
+
 import { JsonPipe } from '@angular/common';
 import { TaskForm } from "../task-form/task-form";
+import { InMemoryRepo } from '../../services/in-memory-repo';
+import { LocalRepo } from '../../services/local-repo';
 
 @Component({
   selector: 'ind-task-list',
   imports: [TaskAdd, TaskItem, JsonPipe, TaskForm],
+  providers: [
+    { provide: InMemoryRepo, useClass: LocalRepo}
+  ],
   template: `
     <details #addTaskDetails>
       <summary>Add Task</summary>
       <ind-task-add
-      [parentElement]="element().nativeElement"
       (eventAdd)="handleAdd($event)"/>
     </details>
 
@@ -53,7 +57,7 @@ import { TaskForm } from "../task-form/task-form";
     }
   `,
 })
-export class TaskList implements OnInit, OnDestroy {
+export class TaskList implements OnInit {
   tasks = signal<Task[]>([]);
 
   // @ViewChild("addTaskDetails", {
@@ -62,51 +66,53 @@ export class TaskList implements OnInit, OnDestroy {
 
   element = viewChild.required<ElementRef<HTMLDetailsElement>>('addTaskDetails');
   element2 = viewChild.required<ElementRef<HTMLDetailsElement>>('addTaskDetails2');
-
-  constructor() {
-    console.log('task-list constructor!');
-    console.log(this.tasks());
-    console.log(this.element) // undefined
-  }
+  private repo = inject(InMemoryRepo);
 
   ngOnInit(): void {
-
-
-    console.log('task-list ngOnInit');
-    console.log(this.element) // defined
-
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    getTasks().then((t) => {
+    this.repo.getAll().then((t) => {
       this.tasks.set(t);
       console.log(this.tasks());
     });
 
   }
-  ngOnDestroy(): void {
-    console.log(' task-list ngOnDestroy');
-  }
 
   handleDelete(task: Task) {
-    this.tasks.update((tasks) => tasks.filter((t) => t.id !== task.id));
+    this.repo.delete(task.id).then(() => {
+      this.tasks.set(this.repo.data);
+    });
+    // this.tasks.update((tasks) => tasks.filter((t) => t.id !== task.id));
+  }
+
+    async handleDelete2(task: Task) {
+      await this.repo.delete(task.id)
+      this.tasks.set(await this.repo.getAll());
+    // this.tasks.update((tasks) => tasks.filter((t) => t.id !== task.id));
   }
 
   handleUpdate(task: Task) {
-    this.tasks.update((tasks) => tasks.map((t) => (t.id === task.id ? task : t)));
+  this.repo.update(task.id, task).then(() => {
+      this.tasks.set(this.repo.data);
+    });
+    // this.tasks.update((tasks) => tasks.map((t) => (t.id === task.id ? task : t)));
   }
 
+
   handleAdd(taskData: TaskDTO) {
-    // Asignar un ID nuevo
-    const newId = this.tasks().length
-      ? Math.max(...this.tasks().map((t) => Number(t.id) || 0)) + 1
-      : 1;
-    const task: Task = {
-      id: newId,
-      ...taskData
-      // title: taskData.title,
-      // owner: taskData.owner,
-      // isCompleted: taskData.isCompleted
-    };
-    this.tasks.update((tasks) => [...tasks, task]);
+    this.repo.add(taskData).then(() => {
+      this.tasks.set(this.repo.data);
+      this.element().nativeElement.open = false;
+      this.element2().nativeElement.open = false;
+    });
+    // // Asignar un ID nuevo
+    // const newId = this.generateId();
+    // const task: Task = {
+    //   id: newId,
+    //   ...taskData
+    //   // title: taskData.title,
+    //   // owner: taskData.owner,
+    //   // isCompleted: taskData.isCompleted
+    // };
+    // this.tasks.update((tasks) => [...tasks, task]);
   }
 }
+
