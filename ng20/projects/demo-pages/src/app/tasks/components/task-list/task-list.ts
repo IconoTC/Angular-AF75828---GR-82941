@@ -12,7 +12,7 @@ import { TaskForm } from "../task-form/task-form";
   template: `
     <details #addTaskDetails>
       <summary>Add Task</summary>
-      <ind-task-add 
+      <ind-task-add
       [parentElement]="element().nativeElement"
       (eventAdd)="handleAdd($event)"/>
     </details>
@@ -20,7 +20,7 @@ import { TaskForm } from "../task-form/task-form";
     <details #addTaskDetails2>
       <summary>Add Task Form</summary>
       <ind-task-form
-      [parentElement]="element().nativeElement"
+      [parentElement]="element2().nativeElement"
       (eventAdd)="handleAdd($event)"/>
     </details>
 
@@ -61,6 +61,7 @@ export class TaskList implements OnInit, OnDestroy {
   // }) element!: ElementRef<HTMLDetailsElement>;
 
   element = viewChild.required<ElementRef<HTMLDetailsElement>>('addTaskDetails');
+  element2 = viewChild.required<ElementRef<HTMLDetailsElement>>('addTaskDetails2');
 
   constructor() {
     console.log('task-list constructor!');
@@ -70,7 +71,7 @@ export class TaskList implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    
+
     console.log('task-list ngOnInit');
     console.log(this.element) // defined
 
