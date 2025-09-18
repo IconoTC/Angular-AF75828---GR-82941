@@ -69,8 +69,8 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
   - Pruebas unitarias para componentes con eventos y data binding.
 - Debugging
 - Comunicación entre componentes
-  - Input. Decoradores @Input. Drilling del título
-  - Output. Decorador @Output. EventEmitter
+  - Input. Decoradores @Input. función input(). Drilling del título
+  - Output. Decorador @Output. EventEmitter. Función output(). Eventos del contador
   - Agrupando contadores.
   - Contadores. Eventos con valor
   - Testing de componentes con comunicación.
@@ -78,7 +78,7 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
   - Componentes de presentación vs contenedores.
   - Componentes inteligentes vs tontos.
 - Ejemplo: ToDo List
-  - Entidad ToDo. Modelo y mock de datos (RxJs).
+  - Entidad ToDo. Modelo y mock de datos.
   - Componente Tasks. Lógica del estado
   - Componente TodoItem. Input y Output (Eventos)
   - Componente TodoCreate. Output (Eventos). Forms Template Driven (TD)
