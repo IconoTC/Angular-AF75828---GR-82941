@@ -47,6 +47,12 @@
     },
     {
       "path": "./projects/demo-repo/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo-rx/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo-rx/tsconfig.spec.json"
     }
   ]
 }
