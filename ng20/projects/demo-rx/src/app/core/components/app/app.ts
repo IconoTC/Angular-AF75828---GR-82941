@@ -6,7 +6,7 @@ import { Layout } from '../layout/layout';
 @Component({
   selector: 'ind-root',
   imports: [RouterOutlet, Layout],
-  template: `
+  template: `[class]="expression"
     <ind-layout>
       <router-outlet />
     </ind-layout>
