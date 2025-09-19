@@ -22,6 +22,13 @@ export const routes: Routes = [
     data: { label: 'Usuario' },
 
   },
+    {
+    path: 'notes',
+    // component: Tasks,
+    loadComponent: () => import('./notes/notes-page'),
+    title: 'Notas Page | Demo Routes',
+    data: { label: 'Notas (API)' },
+  },
   {
     path: 'tasks',
     // component: Tasks,

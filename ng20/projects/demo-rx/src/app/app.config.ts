@@ -6,6 +6,7 @@ import { registerLocaleData } from '@angular/common';
 registerLocaleData(localeEs);
 
 import { routes } from './app.routes';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
+    provideHttpClient(withFetch()),
     // {
     //   provide: InMemoryRepo,
     //   useClass: InMemoryRepo
