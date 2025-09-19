@@ -15,6 +15,14 @@ export const routes: Routes = [
     data: { label: 'Inicio' },
   },
   {
+    path: 'user',
+    // component: Login,
+    loadComponent: () => import('./user/user-page'),
+    title: 'User Page | Demo Routes',
+    data: { label: 'Usuario' },
+
+  },
+  {
     path: 'tasks',
     // component: Tasks,
     loadComponent: () => import('./tasks/tasks'),
