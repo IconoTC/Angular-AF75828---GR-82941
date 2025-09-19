@@ -84,22 +84,39 @@ Repositorio: https://github.com/IconoTC/Angular-AF75828---GR-82941
   - Componente TodoCreate. Output (Eventos). Forms Template Driven (TD)
 
 ## Día 4 (J-18). Servicios. Providers e injectors. Formularios DD
-<!-- 
+
 - Forms TD (review)
 - Introducción a los servicios en Angular.
 - Servicios y Providers. DI (Dependency Injection)
-  - Creación de un servicio: TimeServer
   - Provider root v. provider en un componente
 - Servicios y patrón Repository
   - Servicio InMemoryTaskRepository. Mock de datos.
   - Uso de promesas y observables (RxJs)
   - Testing de servicios.
   - Uso en los componentes. Inyección de dependencias.
-  - Repositorio y lógica de negocio (estado). Estrategias
-  - Estrategia no optimista 1 repositorio / 2 estado
+  - Repositorio y lógica de negocio (estado). 
 - Formularios reactivos (DD)
   - FormGroup, FormControl, FormBuilder
   - Validaciones síncronas y asíncronas.
-  - Formularios anidados. FormArray
-  - Formularios dinámicos.
-  - Testing de formularios reactivos. -->
+  - Testing de formularios reactivos.
+
+
+  ## Día 5 (V-30). Servicios HTTP
+
+  <!-- <!-- - Repositorio y lógica de negocio (estado). Estrategias
+  - Estrategia no optimista 1 repositorio / 2 estado  -->
+<!-- 
+- Formularios reactivos (review). Mensajes de validación
+- Introducción a los servicios HTTP en Angular.ç
+- Servicio fake basado en JSONServer.
+  - Prueba con Postman
+- Servicio HttpClientModule. Observables (RxJs).
+  - Creación de un ApiRepositoryService.
+  - Configuración del servicio HTTP: provider
+  - Uso desde la feature Tasks.
+- Servicios stateful: patrón Flux
+  - Estado con RxJS: Subjects
+  - Clonado de ToDo como ToDo-Flux
+  - Uso del estado desde los componentes ToDo...
+  - Uso desde cualquier parte de la aplicación.
+  - Signals y estado -->
