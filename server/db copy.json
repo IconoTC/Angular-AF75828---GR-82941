@@ -23,12 +23,6 @@
       "owner": "User 2",
       "isCompleted": true,
       "duration": "2 hours"
-    },
-    {
-      "id": "0f0f",
-      "title": "Algo",
-      "owner": "Pepe",
-      "isCompleted": true
     }
   ]
 }
