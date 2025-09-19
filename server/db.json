@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Angular Basics",
+            "description": "Introduction to Angular framework",
+            "owner": "User 1",
+            "isCompleted": false,
+            "duration": "3 hours"
+        },
+        {
+            "id": 2,
+            "title": "Components and Templates",
+            "description": "Understanding components and templates in Angular",
+            "owner": "User 1",
+            "isCompleted": false,
+            "duration": "4 hours"
+        },
+        {
+            "id": 3,
+            "title": "Services and Dependency Injection",
+            "description": "Learning about services and DI in Angular",
+            "owner": "User 2",
+            "isCompleted": true,
+            "duration": "2 hours"
+        }
+    ]
+}
