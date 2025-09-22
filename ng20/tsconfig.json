@@ -53,6 +53,12 @@
     },
     {
       "path": "./projects/demo-rx/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo-state/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo-state/tsconfig.spec.json"
     }
   ]
 }
